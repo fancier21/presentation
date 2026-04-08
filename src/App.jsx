@@ -14,7 +14,6 @@ import SlideContainer from './components/SlideContainer';
 
 const BASE = import.meta.env.BASE_URL;
 const CROSS_IMAGE = `${BASE}slide1_img.png`;
-const TECH_IMAGE = `${BASE}slide1_img.png`;
 
 export default function App() {
   const [[page, direction], setPage] = useState([0, 0]);
@@ -213,7 +212,6 @@ function SituationView({ slide }) {
 function ProcessView({ slide }) {
   return (
     <div className="relative">
-      <div className="absolute inset-0 opacity-20 -z-10 bg-center bg-no-repeat bg-cover grayscale" style={{ backgroundImage: `url(${TECH_IMAGE})` }} />
       <SlideHeader tag={slide.tag} title={slide.title} />
       <div className="grid md:grid-cols-4 gap-6">
         {slide.steps.map((step, i) => (
