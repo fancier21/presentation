@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-lime: #D9FF00;
+  --color-brand-black: #000000;
+  --color-brand-white: #FFFFFF;
+  --color-brand-slate: #121212;
+  --font-inter: "Inter", sans-serif;
+  
+  --shadow-brutalist: 8px 8px 0px 0px rgba(0, 0, 0, 1);
+  --shadow-brutalist-lime: 8px 8px 0px 0px #D9FF00;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-black text-brand-white font-inter antialiased selection:bg-brand-lime selection:text-brand-black;
+  }
+}
+
+.brutalist-card {
+  @apply bg-brand-white text-brand-black border-4 border-brand-black shadow-brutalist transition-all hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)];
+}
+
+.brutalist-card-dark {
+  @apply bg-brand-black text-brand-white border-4 border-brand-lime shadow-brutalist-lime transition-all hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[10px_10px_0px_0px_#D9FF00];
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 4px solid #FFFFFF;
+}
+
+.glass-lime {
+  background: rgba(217, 255, 0, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 4px solid #D9FF00;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
