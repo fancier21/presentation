@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { 
-  ChevronRight, 
-  ChevronLeft, 
-  Hospital, 
-  Zap, 
-  Target, 
+import {
+  ChevronRight,
+  ChevronLeft,
+  Hospital,
+  Zap,
+  Target,
   ShieldCheck,
   XCircle
 } from 'lucide-react';
@@ -41,7 +41,7 @@ export default function App() {
     <div className="relative h-screen w-screen bg-brand-black text-brand-white overflow-hidden select-none font-inter uppercase italic font-black">
       {/* Background dot texture */}
       <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#D9FF00 1px, transparent 0)', backgroundSize: '40px 40px' }} />
-      
+
       <AnimatePresence initial={false} custom={direction}>
         <SlideContainer key={page} direction={direction}>
           {renderSlide(currentSlide)}
@@ -50,7 +50,7 @@ export default function App() {
 
       {/* Navigation */}
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 md:translate-x-0 md:bottom-10 md:right-10 flex gap-0 z-50">
-        <button 
+        <button
           onClick={() => paginate(-1)}
           className="w-12 h-12 md:w-16 md:h-16 bg-brand-white text-brand-black border-2 md:border-4 border-brand-black flex items-center justify-center hover:bg-brand-lime transition-colors disabled:opacity-20"
           disabled={page === 0}
@@ -60,7 +60,7 @@ export default function App() {
         <div className="h-12 md:h-16 px-4 md:px-8 bg-brand-lime text-brand-black border-y-2 md:border-y-4 border-brand-black flex items-center justify-center text-lg md:text-2xl font-black whitespace-nowrap">
           {page + 1} / {slides.length}
         </div>
-        <button 
+        <button
           onClick={() => paginate(1)}
           className="w-12 h-12 md:w-16 md:h-16 bg-brand-white text-brand-black border-2 md:border-4 border-brand-black flex items-center justify-center hover:bg-brand-lime transition-colors disabled:opacity-20"
           disabled={page === slides.length - 1}
@@ -72,7 +72,7 @@ export default function App() {
       {/* Branding logo */}
       <div className="absolute top-4 left-4 md:top-8 md:left-8 flex items-center gap-2 md:gap-3 z-50">
         <div className="bg-brand-lime p-2 md:p-3 border-2 md:border-4 border-brand-black shadow-[2px_2px_0px_0px_rgba(255,255,255,1)] md:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]">
-          <Hospital className="w-5 h-5 md:w-7 md:h-7 text-brand-black" strokeWidth={3} />
+          <Zap className="w-5 h-5 md:w-7 md:h-7 text-brand-black" strokeWidth={3} />
         </div>
         <div>
           <h1 className="text-lg md:text-3xl font-black tracking-tighter text-brand-lime leading-none">TG-2026</h1>
@@ -154,26 +154,26 @@ function HeroView({ slide }) {
         >
           {/* Decorative background box */}
           <div className="absolute inset-0 bg-brand-lime border-4 border-brand-black translate-x-6 translate-y-6 -z-10 shadow-brutalist" />
-          
+
           <div className="bg-brand-black border-8 border-brand-white p-2 shadow-[20px_20px_0px_0px_#D9FF00]">
             <div className="relative overflow-hidden bg-brand-black aspect-square w-full max-w-[450px] md:max-w-[550px]">
-               <img 
-                 src={CROSS_IMAGE} 
-                 alt="hero" 
-                 className="w-full h-full object-cover animate-float scale-110" 
+               <img
+                 src={CROSS_IMAGE}
+                 alt="hero"
+                 className="w-full h-full object-cover animate-float scale-110"
                />
-               
+
                {/* Overlays */}
                <div className="absolute top-6 left-6 bg-brand-black text-brand-lime text-[10px] font-black px-4 py-2 border-2 border-brand-lime uppercase tracking-[0.3em]">
                  SIGNAL DETECTED
                </div>
-               
+
                <div className="absolute bottom-6 right-6 bg-brand-lime text-brand-black text-xs font-black px-4 py-2 border-4 border-brand-black -rotate-6 shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] uppercase">
                  AI ENGINE
                </div>
             </div>
           </div>
-          
+
           {/* System metadata label */}
           {/* <div className="absolute -bottom-12 right-0 hidden lg:block">
             <p className="text-[10px] tracking-[0.5em] text-brand-white/20 uppercase font-black">STABLE_OS // BTM_REGION_SCAN</p>
@@ -191,7 +191,7 @@ function SituationView({ slide }) {
       <SlideHeader tag={slide.tag} title={slide.title} />
       <div className="grid md:grid-cols-3 gap-0">
         {slide.cards.map((card, i) => (
-          <motion.div 
+          <motion.div
             key={i}
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -215,7 +215,7 @@ function ProcessView({ slide }) {
       <SlideHeader tag={slide.tag} title={slide.title} />
       <div className="grid md:grid-cols-4 gap-6">
         {slide.steps.map((step, i) => (
-          <motion.div 
+          <motion.div
             key={i}
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -357,7 +357,7 @@ function CategoryView({ slide }) {
       <SlideHeader tag={slide.tag} title={slide.title} />
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-0 border-4 border-brand-white">
         {slide.items.map((item, i) => (
-          <motion.div 
+          <motion.div
             key={i}
             whileHover={{ backgroundColor: '#D9FF00', color: '#000000' }}
             className={`p-8 md:p-10 border-4 border-brand-white transition-all group flex flex-col justify-between min-h-[280px] md:min-h-[320px] ${i % 2 === 0 ? 'bg-brand-black' : 'bg-brand-slate'}`}
@@ -380,7 +380,7 @@ function BenefitsView({ slide }) {
       <SlideHeader tag={slide.tag} title={slide.title} />
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {slide.benefits.map((benefit, i) => (
-          <motion.div 
+          <motion.div
              key={i}
              className="brutalist-card p-8 flex flex-col items-center text-center group"
           >
